@@ -1,0 +1,10 @@
+
+  .TodoItem-p--complete {
+    text-decoration: line-through;
+  }
+  
+  
+
+  .Icon-delete:hover {
+    background-color: red;
+  }
