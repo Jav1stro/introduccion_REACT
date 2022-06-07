@@ -58,6 +58,28 @@ function App() {
     });
   }
 
+  const completeTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = true;
+    console.log(newTodos)
+    setTodos(newTodos);
+  };
+  
+  const unCompleteTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = false;
+    console.log(newTodos)
+    setTodos(newTodos);
+  };
+
+  const deleteTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
 
   return (
       
@@ -67,11 +89,17 @@ function App() {
         <TodoContainer>
         <TodoList>
         {searchedTodos.map(todo=>(
-          <TodoItem id={todo.id} text ={todo.text}  completed={todo.completed} />
+          <TodoItem 
+          id={todo.id} 
+          text ={todo.text}
+          completed={todo.completed}
+          onComplete={()=> completeTodo(todo.text)}
+          unComplete={()=> unCompleteTodo(todo.text)}
+          onDelete={() => deleteTodo(todo.text)}
+           />
         ))}
         </TodoList>
         </TodoContainer>
-        <button>BOTÓN</button>
         </Container>
       
   );
