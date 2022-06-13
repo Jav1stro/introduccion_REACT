@@ -1,5 +1,7 @@
-import React from 'react'
+import {React, useContext} from 'react';
 import styled from 'styled-components'
+import {TodoContext} from '../../TodoContext';
+
 
 const TitleStyled = styled.header`
   margin:0;
@@ -8,7 +10,9 @@ const TitleStyled = styled.header`
   font-weight:bold;
 `
 
- function TodoCounter({ totalTodos, completedTodos }){
+ function TodoCounter(){
+  const { totalTodos, completedTodos} = useContext( TodoContext );
+
   return (
     <TitleStyled>
     Has completado {completedTodos} de {totalTodos} TODOs

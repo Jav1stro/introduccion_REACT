@@ -4,36 +4,39 @@ import { TodoList } from '../components/TodoList'
 import {TodoSearch} from '../components/TodoSearch'
 import { Container } from '../components/Container'
 import {TodoContext} from '../TodoContext';
+import { useContext } from 'react'
 
 function AppUI(){
+   const {
+        error,
+        loading,
+        searchedTodos,
+        completeTodo,
+        unCompleteTodo,
+        deleteTodo
+   }=  useContext(TodoContext)
     return ( 
-        <Container>
-      <TodoCounter/>
-       <TodoSearch/>
+    <Container>
+        <TodoCounter/>
+        <TodoSearch/>
        
-       <TodoContext.Consumer>
-            { value =>(
-                <TodoList>
-                {value.error && <p>Desespérate, hubo un error...</p>}
-                 {value.loading && <p>Estamos cargando, no desesperes...</p>}
-                 {(!value.loading && !value.searchedTodos.length) && <p>¡Crea tu primer TODO!</p>}
+            <TodoList>
+                {error && <p>Desespérate, hubo un error...</p>}
+                {loading && <p>Estamos cargando, no desesperes...</p>}
+                 {(!loading && !searchedTodos.length) && <p>¡Crea tu primer TODO!</p>}
                  
-                {value.searchedTodos.map(todo=>(
+                {searchedTodos.map(todo=>(
                      <TodoItem 
                          id={todo.id} 
                          text ={todo.text}
                          completed={todo.completed}
-                         onComplete={()=> value.completeTodo(todo.text)}
-                         unComplete={()=> value.unCompleteTodo(todo.text)}
-                         onDelete={() => value.deleteTodo(todo.text)}
+                         onComplete={()=> completeTodo(todo.text)}
+                         unComplete={()=> unCompleteTodo(todo.text)}
+                         onDelete={() => deleteTodo(todo.text)}
                      />
                 ))}
-                </TodoList>
-            )
+            </TodoList>
             
-            }
-       </TodoContext.Consumer>
-
        </Container>
      );
 }

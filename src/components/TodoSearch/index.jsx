@@ -1,6 +1,7 @@
-import React from 'react';
-// import  { useState } from 'react';
+import {React, useContext} from 'react';
+import {TodoContext} from '../../TodoContext';
 import styled from 'styled-components'
+
 
 
 export const InputStyled= styled.input`
@@ -9,9 +10,10 @@ color: #ff0022;
 
 `
 
-export function TodoSearch({ searchValue, setSearchValue }) {
-  // const [] = useState('Búsqueda'); 
+export function TodoSearch() {
   
+  const {searchValue, setSearchValue}  = useContext(TodoContext);
+
   const onSearchValueChange= (event) =>{
     console.log(event.target.value);
     setSearchValue(event.target.value);
