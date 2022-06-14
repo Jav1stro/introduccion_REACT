@@ -8,6 +8,8 @@ const TitleStyled = styled.header`
   padding:0;
   font-size:32px;
   font-weight:bold;
+  margin-top:20px;
+  padding:20px;
 `
 
  function TodoCounter(){
@@ -15,7 +17,7 @@ const TitleStyled = styled.header`
 
   return (
     <TitleStyled>
-    Has completado {completedTodos} de {totalTodos} TODOs
+    ¡Has completado {completedTodos} de {totalTodos} TODOs!
     </TitleStyled>
   )
 }
