@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import styled from "styled-components";
 
 const ModalStyled = styled.div`
-  background: rgba(13, 58, 150, 0.8);
+  background: rgba(0, 0, 0, 0.733);
   position: fixed;
   top: -10px;
   left: -10px;
@@ -11,8 +11,6 @@ const ModalStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  font-size: 30px;
 `;
 
 function Modal({ children }) {

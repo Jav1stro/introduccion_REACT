@@ -20,7 +20,6 @@ export function TodoItem(props) {
 
   return (
     <div>
-        <h2>TODO Nº {props.id +1}</h2>
         <Absolute>
         <h4 className='TodoItem-title'>Tarea</h4>
         <p className={`${props.completed && 'TodoItem-p--complete'} TodoItem-p`}>

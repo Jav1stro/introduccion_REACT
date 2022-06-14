@@ -26,9 +26,9 @@ const CreateTodoButtonStyled = styled.div`
 function CreateTodoButton(props) {
     let textButton = "";
     if (props.openModal) {
-        textButton = "close Modal";
+        textButton = "Cerrar";
       } else {
-        textButton = "open modal";
+        textButton = "Nuevo Todo";
       }
   const onClickButton = () => {
     props.setOpenModal(prevState=> !prevState);
