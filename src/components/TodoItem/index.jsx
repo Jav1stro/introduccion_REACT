@@ -10,6 +10,7 @@ background-color: #f8566bad;
 text-align: center;
 color:black;
 box-shadow: 0px 0px 50px 15px #04ff19a4;
+margin-bottom:30px;
 `
 export const SpanStyled = styled.button`
 border: none;
